@@ -53,3 +53,37 @@ describe("test size: ", ()=> {
         expect(queue.size()).toBe(11)
     })
 })
+
+describe("resr dequeue: ", ()=> {
+    test("empty queue return null", ()=> {
+        const queue = createQueue();
+        expect(queue.dequeue()).toBeNull()
+    })
+  
+    test("test deque: dequeue the one that was most recently added", () => {
+        const queue = createQueue()
+        queue.enqueue(2)
+        queue.enqueue(3)
+        expect(queue.size()).toBe(2)
+        expect(queue.dequeue()).toEqual(3)
+        expect(queue.size()).toBe(1)
+    })
+ })
+ 
+ // test clear
+describe("test clear", ()=> {
+    test("test clear: enqueue then clear", () => {
+        const queue = createQueue()
+        queue.enqueue(2)
+        queue.enqueue(3)
+        queue.clear()
+        expect(queue.isEmpty()).toBeTruthy()
+    })
+
+    test("test clear: on empty queue", () => {
+        const queue = createQueue()
+        queue.clear()
+        expect(queue.isEmpty()).toBeTruthy()
+    })
+ })
+ 
